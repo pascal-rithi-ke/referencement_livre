@@ -25,7 +25,10 @@ function DetailsScreen() {
             <Image source={{ uri: item.imageUrl }} style={styles.imageLivre} />
             <View style={styles.containerLivre}>
 
-                <Text style={{ fontSize: 25, fontWeight: 'bold' }}>{item.titre} - T.{item.tomes}</Text>
+                <Text style={{ fontSize: 25, fontWeight: 'bold' }}>{item.titre}</Text>
+
+                <Text style={styles.label_nbTomesLivre}>Nombre de tome(s):</Text>
+                <Text style={styles.nbTomesLivre}>{item.tomes} tome(s)</Text>
 
                 <Text style={styles.label_statutLivre}>Statut de la série: </Text>
                 <Text style={[styles.statutLivre, getStatutText() === 'Terminé' ? styles.statutLivreTerminer : styles.statutLivreEnCours]}>{getStatutText()}</Text>
@@ -78,6 +81,16 @@ const styles = StyleSheet.create({
         transform: [{ scale: 1 }]
     },
 
+    label_nbTomesLivre: {
+        fontSize: 15,
+        fontWeight: 'bold',
+    },
+
+    nbTomesLivre: {
+        margin: 5,
+        width: 100,
+    },
+
     label_statutLivre: {
         fontSize: 15,
         fontWeight: 'bold',
@@ -128,6 +141,7 @@ const styles = StyleSheet.create({
     container_descriptionLivre: {
         backgroundColor: 'white',
         borderRadius: 5,
+        marginTop: 5,
     },
     descriptionLivre: {
         fontSize: 15,
